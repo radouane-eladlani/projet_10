@@ -3,9 +3,12 @@ import { Link } from 'react-router-dom';
 import './../css/main.css';
 import argentBankLogo from '../img/argentBankLogo.png';
 import Acount from '../composant/Acount.jsx';
+import { useSelector } from 'react-redux';
 
 
 const User = () => {
+  const token = useSelector(state => state.auth.token);
+  console.log('token', token);
   return (
     <>
       {/* Barre de navigation principale */}

@@ -6,6 +6,9 @@ import SignIn from './page/SignIn';
 import PageAccueil from './page/PageAccueil'; 
 import User from './page/User'; 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'; 
+import store from './redux/store';
+import { Provider } from 'react-redux';
+
 
 const router = createBrowserRouter([
   { path: "/", element: <PageAccueil /> }, 
@@ -25,8 +28,11 @@ function renderApp() {
 
   
   ReactDOM.createRoot(rootElement).render(
-    <React.StrictMode> 
-      <RouterProvider router={router} /> {/* est utilisé pour fournir le routeur à l'application.  */}
+    <React.StrictMode>
+      {/* store permet de relier l'application avec Redux */}
+      <Provider store={store}> 
+        <RouterProvider router={router} />
+      </Provider>
     </React.StrictMode>
   );
 }

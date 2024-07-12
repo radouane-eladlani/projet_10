@@ -6,6 +6,8 @@ import iconChat from './../img/icon-chat.png';
 import iconMoney from './../img/icon-money.png';
 import iconSecurity from './../img/icon-security.png';
 import  FeatureItem  from '../composant/FeatureItem';
+//import TestRedux from '../composant/TestRedux.jsx';
+
 
 const PageAccueil = () => {
   return (
@@ -39,6 +41,10 @@ const PageAccueil = () => {
             <p className="text">Ouvrez un compte épargne avec Argent Bank dès aujourd'hui !</p>
           </section>
         </div>
+       {/* <div>
+      <h1>Page d'Accueil</h1>
+      <TestRedux />
+    </div>*/}
 
         {/* Section des fonctionnalités */}
         <section className="features">
