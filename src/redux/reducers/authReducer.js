@@ -3,13 +3,13 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   email: '',
   token: '',
-  isAuth : false,
+  isAuth: false,
   username: '',
   firstName: '',
   lastName: '',
 };
 
-const userSlice = createSlice ({
+const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
@@ -23,10 +23,20 @@ const userSlice = createSlice ({
       state.token = action.payload;
       state.isAuth = true;
     },
+    updateUserProfile: (state, action) => {
+      state.firstName = action.payload.firstName;
+      state.lastName = action.payload.lastName;
+    },
+    logout: (state) => {
+      state.email = '';
+      state.token = '';
+      state.isAuth = false;
+      state.username = '';
+      state.firstName = '';
+      state.lastName = '';
+    },
   },
 });
 
-
-
-export const { loginSuccess, user } = userSlice.actions;
+export const { loginSuccess, user, updateUserProfile, logout } = userSlice.actions;
 export default userSlice.reducer;
