@@ -4,11 +4,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import argentBankLogo from '../img/argentBankLogo.png';
 import Acount from '../composant/Acount.jsx';
 import { updateUserProfile } from '../redux/reducers/authReducer';
+import { logout } from '../redux/reducers/authReducer';
 
 const User = () => {
   const token = useSelector(state => state.auth.token);
   const user = useSelector(state => state.auth);
   const dispatch = useDispatch();
+  const handleLogout = () => {
+    dispatch(logout()); // Dispatcher l'action de déconnexion
+  };
 
   const [editMode, setEditMode] = useState(false);
   const [firstName, setFirstName] = useState('');
@@ -66,7 +70,7 @@ if (!user.isAuth){
             <i className="fa fa-user-circle"></i>
             {firstName || 'Utilisateur'}
           </Link>
-          <Link className="main-nav-item" to="/">
+          <Link className="main-nav-item" to="/signin" onClick={handleLogout}>
             <i className="fa fa-sign-out"></i>
             Déconnexion
           </Link>
